@@ -1119,7 +1119,7 @@ ul.search-cart-area {
 }
 
 .search-cart-area li:first-child::after {
-    content: "|";
+    content: "";
     top: -1px;
     position: absolute;
     right: -23px;
