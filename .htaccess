@@ -1,0 +1,7 @@
+RewriteEngine on
+
+RewriteRule ^Home index.html [NC,L]
+
+RewriteRule ^Gallery gallery.html [NC,L]
+
+RewriteRule ^Contact contact.html [NC,L]
