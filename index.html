@@ -28,6 +28,8 @@
    <link rel="stylesheet" href="assets/css/responsive.css">
    <!-- jquery js -->
    <script src="assets/js/jquery-3.3.1.min.js"></script>
+   <!-- SweetAlert2 -->
+   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
 <!--   header area start   -->
@@ -375,7 +377,7 @@
             <div class="quote-form-section">
                <span class="title">Quote</span>
                <h2 class="subtitle">GET A QUOTE</h2>
-               <form action="#">
+               <form action="Quote" method="post">
                   <div class="row">
                      <div class="col-lg-6">
                         <div class="form-element"><input name="name" type="text" placeholder="You name"></div>
@@ -388,11 +390,11 @@
                      </div>
                      <div class="col-lg-12">
                         <div class="form-element">
-                           <textarea class="form-control" rows="4" placeholder="Your messages here..."></textarea>
+                           <textarea class="form-control" name="message" rows="4" placeholder="Your messages here..."></textarea>
                         </div>
                      </div>
                      <div class="col-lg-12">
-                        <div class="form-element mb-0"><button type="submit" class="boxed-btn"><span>Submit</span></button></div>
+                        <div class="form-element mb-0"><button type="submit" name="submit" class="boxed-btn"><span>Submit</span></button></div>
                      </div>
                   </div>
                </form>
@@ -595,5 +597,34 @@
 <script src="assets/js/jquery.ripples-min.js"></script>
 <!-- main js -->
 <script src="assets/js/main.js"></script>
+
+<script>
+   let x = getCookie('alert');
+   function getCookie(name) {
+      var nameEQ = name + "=";
+      var ca = document.cookie.split(';');
+      for(var i=0;i < ca.length;i++) {
+         var c = ca[i];
+         while (c.charAt(0)==' ') c = c.substring(1,c.length);
+         if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+      }
+      return null;
+   }
+   console.log(x);
+   if(x==1){
+      Swal.fire({
+         title: 'Successful',
+         text: 'Request Successful',
+         imageUrl: 'https://www.whitewallgroupllc.com/assets/img/logo/logo-2.png',
+         imageWidth: 400,
+         imageHeight: 100,
+         imageAlt: 'Custom image',
+      })
+      eraseCookie('alert');
+   }
+   function eraseCookie(name) {
+      document.cookie = name +'=;';
+   }
+</script>
 </body>
 </html>

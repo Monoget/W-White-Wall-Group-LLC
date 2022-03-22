@@ -7,3 +7,5 @@ RewriteRule ^Gallery gallery.html [NC,L]
 RewriteRule ^Contact contact.html [NC,L]
 
 RewriteRule ^Pricing pricing.html [NC,L]
+
+RewriteRule ^Quote email.php [NC,L]
